@@ -34,7 +34,7 @@ namespace Project_1
                 {
                     
                     output += input[i - 1] + count.ToString();
-                    count = 1;  // Reset the count for the new character
+                    count = 1;  
                 }
             }
 
