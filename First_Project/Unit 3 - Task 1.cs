@@ -1,16 +1,22 @@
 ﻿using System;
-
+using System.Collections.Generic;
 class Program
 {
     public static void Main(string[] args)
     {
-        int[] books = new int[] { 2, 2, 2, 1, 1, };
+        List<int> bookS = new List<int>();
+        for (int i = 0; i < 5; i++)
+        { 
+            Console.WriteLine("Please enter the number of books you want:");
+            int books = int.Parse(Console.ReadLine());
+            bookS.Add(books);
+        }
 
-        double totalPrice = CalculateTotalPrice(books);
+        double totalPrice = CalculateTotalPrice(bookS);
         Console.WriteLine("Total price: $" + totalPrice.ToString("0.00"));
     }
 
-    static double CalculateTotalPrice(int[] books)
+    static double CalculateTotalPrice(List<int> books)
     {
         double bookPrice= 8.00;
 
@@ -19,7 +25,7 @@ class Program
         while (true)
         {
             int distinctBooks = 0;
-            for(int i = 0; i < books.Length; i++)
+            for(int i = 0; i < books.Count; i++)
             {
                 if (books[i] > 0)
                 {
@@ -59,7 +65,7 @@ class Program
             double groupPrice = groupSize * (bookPrice - (bookPrice * discount));
             totalPrice += groupPrice;
 
-            for(int i = 0;i < books.Length && groupSize > 0; i++)
+            for(int i = 0;i < books.Count && groupSize > 0; i++)
             {
                 if (books[i] > 0)
                 {
